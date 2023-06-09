@@ -108,6 +108,8 @@ func (g *GroupMessageHandler) ReplyText() error {
 		return nil
 	}
 
+	g.msg.ReplyText(buildUserReply("正在思考，请稍后..."))
+
 	// 3.请求GPT获取回复
 	reply, err = gpt.Completions(requestText)
 	if err != nil {
@@ -147,10 +149,10 @@ func (g *GroupMessageHandler) getRequestText() string {
 	}
 
 	// 3.获取上下文拼接在一起,如果字符长度超出4000截取为4000(GPT按字符长度算),达芬奇3最大为4068,也许后续为了适应要动态进行判断
-	sessionText := g.service.GetUserSessionContext()
+	/*sessionText := g.service.GetUserSessionContext()
 	if sessionText != "" {
 		requestText = sessionText + "\n" + requestText
-	}
+	}*/
 	if len(requestText) >= 4000 {
 		requestText = requestText[:4000]
 	}

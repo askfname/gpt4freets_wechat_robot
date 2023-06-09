@@ -1,5 +1,5 @@
-# chatgpt_wechat_robot
-个人微信接入ChatGPT，实现和GPT机器人互动聊天。支持私聊回复和群聊艾特回复。
+# gpt4freets_wechat_robot
+调用 GPT4Free-TS 的接口，实现个人微信接入 ChatGPT，和 GPT 机器人免费聊天。支持私聊回复和群聊艾特回复。
 
 ### 实现功能
 

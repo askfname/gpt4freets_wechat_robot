@@ -9,11 +9,10 @@ import (
 	"github.com/skip2/go-qrcode"
 	"log"
 	"runtime"
-	"strings"
 	"time"
 )
 
-const deadlineExceededText = "请求GPT服务器超时[裂开]得不到回复，请重新发送问题[旺柴]"
+const deadlineExceededText = "请求GPT服务器超时，请重新发送问题"
 
 var c = cache.New(config.LoadConfig().SessionTimeout, time.Minute*5)
 
@@ -38,10 +37,10 @@ func QrCodeCallBack(uuid string) {
 func NewHandler() (msgFunc func(msg *openwechat.Message), err error) {
 	dispatcher := openwechat.NewMessageMatchDispatcher()
 
-	// 清空会话
+	/*// 清空会话
 	dispatcher.RegisterHandler(func(message *openwechat.Message) bool {
 		return strings.Contains(message.Content, config.LoadConfig().SessionClearToken)
-	}, TokenMessageContextHandler())
+	}, TokenMessageContextHandler())*/
 
 	// 处理群消息
 	dispatcher.RegisterHandler(func(message *openwechat.Message) bool {
@@ -65,7 +64,7 @@ func NewHandler() (msgFunc func(msg *openwechat.Message), err error) {
 	// 私聊
 	// 获取用户消息处理器
 	dispatcher.RegisterHandler(func(message *openwechat.Message) bool {
-		return !(strings.Contains(message.Content, config.LoadConfig().SessionClearToken) || message.IsSendByGroup() || message.IsFriendAdd())
+		return !(message.IsSendByGroup() || message.IsFriendAdd())
 	}, UserMessageContextHandler())
 	return openwechat.DispatchMessage(dispatcher), nil
 }
