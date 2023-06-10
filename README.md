@@ -94,7 +94,7 @@ $ go run main.go
   "auto_pass": true,                # 是否自动通过好友添加
   "session_timeout": 60,            # 会话超时时间，默认60秒，单位秒，在会话时间内所有发送给机器人的信息会作为上下文
   "model": "forefront",             # API 来源，默认使用 forefront 的 API
-  "reply_prefix": "来自GPT的回复：", # 私聊回复前缀
+  "reply_prefix": "来自GPT的回复:", # 私聊回复前缀
   "timeout": 150,                   # 请求 API 接口的超时时间（秒）
   "url": "http://127.0.0.1:3000"    # gpt4free-ts 的部署地址
 }
