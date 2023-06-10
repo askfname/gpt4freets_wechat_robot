@@ -2,7 +2,7 @@
   "auto_pass": true,
   "session_timeout": 60,
   "model": "forefront",
-  "reply_prefix": "",
+  "reply_prefix": "来自GPT的回复:",
   "timeout": 150,
-  "url": "https://wiskxuxivncf.cloud.sealos.io"
+  "url": "http://127.0.0.1:3000"
 }
