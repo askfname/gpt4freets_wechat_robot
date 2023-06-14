@@ -37,7 +37,7 @@
 
 ```sh
 # 运行项目，环境变量参考下方配置说明
-$ docker run -itd --name wechatbot --restart=always \
+docker run -itd --name wechatbot --restart=always \
  -e AUTO_PASS=false \
  -e SESSION_TIMEOUT=60s \
  -e MODEL=forefront \
@@ -47,8 +47,8 @@ $ docker run -itd --name wechatbot --restart=always \
  nasheep/wechatbot:latest
 
 # 查看二维码
-$ docker exec -it wechatbot bash 
-$ tail -f -n 50 /app/run.log 
+docker exec -it wechatbot bash 
+tail -f -n 50 /app/run.log 
 ```
 
 运行命令中映射的配置文件参考下边的配置文件说明。
@@ -57,14 +57,14 @@ $ tail -f -n 50 /app/run.log
 
 ```sh
 # 复制配置文件，根据自己实际情况，调整配置里的内容
-$ cp config.dev.json config.json  # 其中 config.dev.json 从项目的根目录获取
+cp config.dev.json config.json  # 其中 config.dev.json 从项目的根目录获取
 
 # 运行项目
-$ docker run -itd --name wechatbot -v `pwd`/config.json:/app/config.json nasheep/wechatbot:latest
+docker run -itd --name wechatbot -v `pwd`/config.json:/app/config.json nasheep/wechatbot:latest
 
 # 查看二维码
-$ docker exec -it wechatbot bash 
-$ tail -f -n 50 /app/run.log 
+docker exec -it wechatbot bash 
+tail -f -n 50 /app/run.log 
 ```
 
 其中配置文件参考下边的配置文件说明。
@@ -75,16 +75,16 @@ $ tail -f -n 50 /app/run.log
 
 ````
 # 获取项目
-$ git clone https://github.com/nasheep/gpt4freets_wechat_robot.git
+git clone https://github.com/nasheep/gpt4freets_wechat_robot.git
 
 # 进入项目目录
-$ cd gpt4freets_wechat_robot
+cd gpt4freets_wechat_robot
 
 # 复制配置文件
-$ cp config.dev.json config.json
+cp config.dev.json config.json
 
 # 启动项目
-$ go run main.go
+go run main.go
 ````
 
 ### 配置说明
