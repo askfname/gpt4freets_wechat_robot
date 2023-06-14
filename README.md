@@ -1,3 +1,5 @@
+## 🚨 由于 GPT4Free-TS 不再直接公开 forefront 的代码，所以基于 forefront 的 GPT4 无法使用，请在配置文件中设置其他站点，例如：chatdemo、you。
+
 # gpt4freets_wechat_robot
 调用 [GPT4Free-TS](https://github.com/xiangsx/gpt4free-ts) 的接口，实现个人微信接入 ChatGPT，和 GPT 机器人免费聊天。支持私聊回复和群聊艾特回复。
 
@@ -40,8 +42,8 @@
 docker run -itd --name wechatbot --restart=always \
  -e AUTO_PASS=false \
  -e SESSION_TIMEOUT=60s \
- -e MODEL=gpt4 \
- -e SITE=forefront \
+ -e MODEL=gpt3.5-turbo \
+ -e SITE=chatdemo \
  -e REPLY_PREFIX=来自GPT的回复: \
  -e TIMEOUT=150 \
  -e URL=http://127.0.0.1:3000 \
@@ -94,9 +96,9 @@ go run main.go
 {
   "auto_pass": true,                # 是否自动通过好友添加
   "session_timeout": 60,            # 会话超时时间，默认60秒，单位秒，在会话时间内所有发送给机器人的信息会作为上下文
-  "model": "gpt4",                  # 模型类型，可选参数：gpt4 gpt3.5-turbo
-  "site": "forefront",              # API 来源，可选参数：forefront you chatdemo
-  "reply_prefix": "来自GPT的回复:", # 私聊回复前缀
+  "model": "gpt3.5-turbo",          # 模型类型，可选参数：gpt3.5-turbo、gpt4
+  "site": "chatdemo",               # API 来源，可选参数：chatdemo、you、forefront
+  "reply_prefix": "来自GPT的回复:",  # 私聊回复前缀
   "timeout": 150,                   # 请求 API 接口的超时时间（秒）
   "url": "http://127.0.0.1:3000"    # gpt4free-ts 的部署地址
 }
