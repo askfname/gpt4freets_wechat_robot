@@ -46,7 +46,7 @@ docker run -itd --name wechatbot --restart=always \
  -e SITE=chatdemo \
  -e REPLY_PREFIX=来自GPT的回复: \
  -e TIMEOUT=150 \
- -e URL=http://127.0.0.1:3000 \
+ -e URL=http://localhost:3000 \
  nasheep/wechatbot:latest
 
 # 查看二维码
@@ -98,9 +98,9 @@ go run main.go
   "session_timeout": 60,            # 会话超时时间，默认60秒，单位秒，在会话时间内所有发送给机器人的信息会作为上下文
   "model": "gpt3.5-turbo",          # 模型类型，可选参数：gpt3.5-turbo、gpt4
   "site": "chatdemo",               # API 来源，可选参数：chatdemo、you、forefront
-  "reply_prefix": "来自GPT的回复:",  # 私聊回复前缀
+  "reply_prefix": "来自GPT的回复:",   # 私聊回复前缀
   "timeout": 150,                   # 请求 API 接口的超时时间（秒）
-  "url": "http://127.0.0.1:3000"    # gpt4free-ts 的部署地址
+  "url": "http://localhost:3000"    # gpt4free-ts 的部署地址
 }
 ```
 
