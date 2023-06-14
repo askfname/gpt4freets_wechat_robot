@@ -71,7 +71,6 @@ func LoadConfig() *Configuration {
 		if SessionTimeout != "" {
 			duration, err := time.ParseDuration(SessionTimeout)
 			if err != nil {
-				logger.Danger(fmt.Sprintf("config session timeout error: %v, get is %v", err, SessionTimeout))
 				config.SessionTimeout = 60
 			}
 			config.SessionTimeout = duration
