@@ -39,14 +39,14 @@
 
 ```sh
 # 运行项目，环境变量参考下方配置说明
-docker run -itd --name wechatbot --restart=always \
+docker run -itd --name wechatbot --add-host=host.docker.internal:host-gateway --restart=always \
  -e AUTO_PASS=false \
  -e SESSION_TIMEOUT=60s \
  -e MODEL=gpt3.5-turbo \
  -e SITE=chatdemo \
  -e REPLY_PREFIX=来自GPT的回复: \
  -e TIMEOUT=150 \
- -e URL=http://localhost:3000 \
+ -e URL=http://host.docker.internal:3000 \
  nasheep/wechatbot:latest
 
 # 查看二维码
@@ -63,7 +63,7 @@ tail -f -n 50 /app/run.log
 cp config.dev.json config.json  # 其中 config.dev.json 从项目的根目录获取
 
 # 运行项目
-docker run -itd --name wechatbot -v `pwd`/config.json:/app/config.json nasheep/wechatbot:latest
+docker run -itd --name wechatbot --add-host=host.docker.internal:host-gateway -v `pwd`/config.json:/app/config.json nasheep/wechatbot:latest
 
 # 查看二维码
 docker exec -it wechatbot bash 
@@ -94,13 +94,13 @@ go run main.go
 
 ```json
 {
-  "auto_pass": true,                # 是否自动通过好友添加
-  "session_timeout": 60,            # 会话超时时间，默认60秒，单位秒，在会话时间内所有发送给机器人的信息会作为上下文
-  "model": "gpt3.5-turbo",          # 模型类型，可选参数：gpt3.5-turbo、gpt4
-  "site": "chatdemo",               # API 来源，可选参数：chatdemo、you、forefront
-  "reply_prefix": "来自GPT的回复:",   # 私聊回复前缀
-  "timeout": 150,                   # 请求 API 接口的超时时间（秒）
-  "url": "http://localhost:3000"    # gpt4free-ts 的部署地址
+  "auto_pass": true,                          # 是否自动通过好友添加
+  "session_timeout": 60,                      # 会话超时时间，默认60秒，单位秒，在会话时间内所有发送给机器人的信息会作为上下文
+  "model": "gpt3.5-turbo",                    # 模型类型，可选参数：gpt3.5-turbo、gpt4
+  "site": "chatdemo",                         # API 来源，可选参数：chatdemo、you、forefront
+  "reply_prefix": "来自GPT的回复:",             # 私聊回复前缀
+  "timeout": 150,                             # 请求 API 接口的超时时间（秒）
+  "url": "http://host.docker.internal:3000"   # gpt4free-ts 的部署地址
 }
 ```
 
