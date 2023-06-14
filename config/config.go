@@ -37,8 +37,8 @@ func LoadConfig() *Configuration {
 		// 给配置赋默认值
 		config = &Configuration{
 			AutoPass: false,
-			Model:    "gpt4",
-			Site:     "forefront",
+			Model:    "gpt3.5-turbo",
+			Site:     "chatdemo",
 		}
 
 		// 判断配置文件是否存在，存在直接JSON读取
