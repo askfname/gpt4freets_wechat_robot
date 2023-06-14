@@ -1,7 +1,8 @@
 {
   "auto_pass": true,
   "session_timeout": 60,
-  "model": "forefront",
+  "model": "gpt4",
+  "site": "forefront",
   "reply_prefix": "来自GPT的回复:",
   "timeout": 150,
   "url": "http://127.0.0.1:3000"

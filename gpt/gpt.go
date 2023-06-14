@@ -66,9 +66,8 @@ func httpRequestCompletions(msg string) (string, error) {
 
 	// 参数值进行编码
 	msg = url.QueryEscape(msg)
-
 	// 构建完整的 URL
-	requestURL := fmt.Sprintf("%s/ask?prompt=%s&&model=%s", cfg.URL, msg, cfg.Model)
+	requestURL := fmt.Sprintf("%s/ask?prompt=%s&&model=%s&&site=%s", cfg.URL, msg, cfg.Model, cfg.Site)
 	req, err := http.NewRequest(http.MethodGet, requestURL, nil)
 	if err != nil {
 		return "", fmt.Errorf("http.NewRequest error: %v", err)

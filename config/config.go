@@ -18,6 +18,8 @@ type Configuration struct {
 	SessionTimeout time.Duration `json:"session_timeout"`
 	// GPT模型
 	Model string `json:"model"`
+	// 访问的站点
+	Site string `json:"site"`
 	// 回复前缀
 	ReplyPrefix string `json:"reply_prefix"`
 	// 超时时间
@@ -35,7 +37,8 @@ func LoadConfig() *Configuration {
 		// 给配置赋默认值
 		config = &Configuration{
 			AutoPass: false,
-			Model:    "forefront",
+			Model:    "gpt4",
+			Site:     "forefront",
 		}
 
 		// 判断配置文件是否存在，存在直接JSON读取
@@ -58,6 +61,7 @@ func LoadConfig() *Configuration {
 		AutoPass := os.Getenv("AUTO_PASS")
 		SessionTimeout := os.Getenv("SESSION_TIMEOUT")
 		Model := os.Getenv("MODEL")
+		Site := os.Getenv("SITE")
 		ReplyPrefix := os.Getenv("REPLY_PREFIX")
 		TimeOut := os.Getenv("TIMEOUT")
 		URL := os.Getenv("URL")
@@ -74,6 +78,9 @@ func LoadConfig() *Configuration {
 		}
 		if Model != "" {
 			config.Model = Model
+		}
+		if Site != "" {
+			config.Site = Site
 		}
 		if ReplyPrefix != "" {
 			config.ReplyPrefix = ReplyPrefix
