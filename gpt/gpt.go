@@ -1,6 +1,7 @@
 package gpt
 
 import (
+	"encoding/json"
 	"fmt"
 	"io/ioutil"
 	"log"
@@ -38,6 +39,10 @@ type ChoiceItem struct {
 type ChatGPTRequestBody struct {
 	Prompt string `json:"prompt"`
 	Model  string `json:"model"`
+}
+
+type Response struct {
+	Content string `json:"content"`
 }
 
 // Completions gtp文本模型回复
@@ -88,6 +93,12 @@ func httpRequestCompletions(msg string) (string, error) {
 
 	log.Printf("gpt response json: %s\n", string(body))
 
-	gptResponseBody := string(body)
+	var resp Response
+	err = json.Unmarshal(body, &resp)
+	if err != nil {
+		return "", fmt.Errorf("json.Unmarshal error: %v", err)
+	}
+
+	gptResponseBody := resp.Content
 	return gptResponseBody, nil
 }
