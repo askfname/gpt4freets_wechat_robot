@@ -98,7 +98,7 @@ go run main.go
   "session_timeout": 60,                      # 会话超时时间，默认60秒，单位秒，在会话时间内所有发送给机器人的信息会作为上下文
   "model": "gpt3.5-turbo",                    # 模型类型，可选参数：gpt3.5-turbo、gpt4
   "site": "chatdemo",                         # API 来源，可选参数：chatdemo、you、forefront
-  "reply_prefix": "来自GPT的回复:",             # 私聊回复前缀
+  "reply_prefix": "来自GPT的回复:",            # 私聊回复前缀
   "timeout": 150,                             # 请求 API 接口的超时时间（秒）
   "url": "http://host.docker.internal:3000"   # gpt4free-ts 的部署地址
 }
