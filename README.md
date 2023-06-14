@@ -40,7 +40,8 @@
 docker run -itd --name wechatbot --restart=always \
  -e AUTO_PASS=false \
  -e SESSION_TIMEOUT=60s \
- -e MODEL=forefront \
+ -e MODEL=gpt4 \
+ -e SITE=forefront \
  -e REPLY_PREFIX=来自GPT的回复: \
  -e TIMEOUT=150 \
  -e URL=http://127.0.0.1:3000 \
@@ -93,7 +94,8 @@ go run main.go
 {
   "auto_pass": true,                # 是否自动通过好友添加
   "session_timeout": 60,            # 会话超时时间，默认60秒，单位秒，在会话时间内所有发送给机器人的信息会作为上下文
-  "model": "forefront",             # API 来源，默认使用 forefront 的 API
+  "model": "gpt4",                  # 模型类型，可选参数：gpt4 gpt3.5-turbo
+  "site": "forefront",              # API 来源，可选参数：forefront you chatdemo
   "reply_prefix": "来自GPT的回复:", # 私聊回复前缀
   "timeout": 150,                   # 请求 API 接口的超时时间（秒）
   "url": "http://127.0.0.1:3000"    # gpt4free-ts 的部署地址
