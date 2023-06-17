@@ -7,6 +7,7 @@ import (
 	"log"
 	"net/http"
 	"net/url"
+	"strings"
 	"time"
 
 	"github.com/qingconglaixueit/wechatbot/config"
@@ -99,6 +100,6 @@ func httpRequestCompletions(msg string) (string, error) {
 		return "", fmt.Errorf("json.Unmarshal error: %v", err)
 	}
 
-	gptResponseBody := resp.Content
+	gptResponseBody := strings.Replace(resp.Content, "\n\n", "\n \n", -1)
 	return gptResponseBody, nil
 }
