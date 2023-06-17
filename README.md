@@ -27,6 +27,7 @@
 ### 使用前提
 * 已经部署 [GPT4Free-TS](https://github.com/xiangsx/gpt4free-ts)
 * 微信必须实名认证
+* 微信必须绑定 +86 手机号
 
 ### 注意事项
 * 项目仅供娱乐，滥用可能有微信封禁的风险，请勿用于商业用途
@@ -94,13 +95,13 @@ go run main.go
 
 ```json
 {
-  "auto_pass": true,                          # 是否自动通过好友添加
-  "session_timeout": 60,                      # 会话超时时间，默认60秒，单位秒，在会话时间内所有发送给机器人的信息会作为上下文
-  "model": "gpt3.5-turbo",                    # 模型类型，可选参数：gpt3.5-turbo、gpt4
-  "site": "chatdemo",                         # API 来源，可选参数：chatdemo、you、forefront
-  "reply_prefix": "来自GPT的回复:",            # 私聊回复前缀
-  "timeout": 150,                             # 请求 API 接口的超时时间（秒）
-  "url": "http://host.docker.internal:3000"   # gpt4free-ts 的部署地址
+  "auto_pass": true,                          // 是否自动通过好友添加
+  "session_timeout": 60,                      // 会话超时时间，默认60秒，单位秒，在会话时间内所有发送给机器人的信息会作为上下文
+  "model": "gpt3.5-turbo",                    // 模型类型，可选参数：gpt3.5-turbo、gpt4
+  "site": "chatdemo",                         // API 来源，可选参数：chatdemo、you、forefront
+  "reply_prefix": "来自GPT的回复:",            // 私聊回复前缀
+  "timeout": 150,                             // 请求 API 接口的超时时间（秒）
+  "url": "http://host.docker.internal:3000"   // gpt4free-ts 的部署地址
 }
 ```
 

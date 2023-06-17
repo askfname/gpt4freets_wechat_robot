@@ -5,5 +5,5 @@
   "site": "chatdemo",
   "reply_prefix": "来自GPT的回复:",
   "timeout": 150,
-  "url": "http://127.0.0.1:3000"
+  "url": "http://host.docker.internal:3000"
 }
