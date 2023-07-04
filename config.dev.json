@@ -2,7 +2,7 @@
   "auto_pass": true,
   "session_timeout": 60,
   "model": "gpt3.5-turbo",
-  "site": "chatdemo",
+  "site": "you",
   "reply_prefix": "来自GPT的回复:",
   "timeout": 150,
   "url": "http://host.docker.internal:3000"

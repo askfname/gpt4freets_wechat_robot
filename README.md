@@ -1,4 +1,4 @@
-## 🚨 由于 GPT4Free-TS 不再直接公开 forefront 的代码，所以基于 forefront 的 GPT4 无法使用，请在配置文件中设置其他站点，例如：chatdemo、you、phind、vita。
+## 🚨 由于 GPT4Free-TS 不再直接公开 forefront 的代码，所以基于 forefront 的 GPT4 无法使用，请在配置文件中设置其他站点，例如：you、phind、chatdemo、vita。
 
 # gpt4freets_wechat_robot
 调用 [GPT4Free-TS](https://github.com/xiangsx/gpt4free-ts) 的接口，实现个人微信接入 ChatGPT，和 GPT 机器人免费聊天。支持私聊回复和群聊艾特回复。
@@ -9,6 +9,22 @@
 * 机器人群聊@回复
 * 私聊回复前缀设置
 * 好友添加自动通过可配置
+
+### 支持的站点
+
+**不保证可用性，如果不可用，请在配置中修改site的值为其他站点**
+
+|model|support|status|active time|
+|--|--|--|--|
+|[vita]()|👍gpt3.5|![Active](https://img.shields.io/badge/Active-brightgreen)|after 2023-06-17|
+|[chatdemo]()|👍gpt3.5|![Active](https://img.shields.io/badge/Active-brightgreen)|after 2023-06-13|
+|[you.com](https://you.com)|👍GPT-3.5|![Active](https://img.shields.io/badge/Active-brightgreen)|after 2023-06-13
+|[phind.com](https://www.phind.com/)|Gpt3.5/ Internet / good search|![Active](https://img.shields.io/badge/Active-brightgreen)|after 2023-06-14
+|[forefront.ai](https://chat.forefront.ai)|GPT-4/gpt3.5|![Active](https://img.shields.io/badge/Active-lightgrey)|after 2023-06-13|
+|[bing.com/chat](https://bing.com/chat)|GPT-4/3.5||
+|[poe.com](https://poe.com)| GPT-4/3.5||
+|[writesonic.com](https://writesonic.com)| GPT-3.5 / Internet||
+|[t3nsor.com](https://t3nsor.com)|GPT-3.5||
 
 ### 常见问题
 > 如无法登录：`login error: write storage.json: bad file descriptor`
@@ -44,7 +60,7 @@ docker run -itd --name wechatbot --add-host=host.docker.internal:host-gateway --
  -e AUTO_PASS=false \
  -e SESSION_TIMEOUT=60s \
  -e MODEL=gpt3.5-turbo \
- -e SITE=chatdemo \
+ -e SITE=you \
  -e REPLY_PREFIX=来自GPT的回复: \
  -e TIMEOUT=150 \
  -e URL=http://host.docker.internal:3000 \
@@ -98,8 +114,8 @@ go run main.go
   "auto_pass": true,                          // 是否自动通过好友添加
   "session_timeout": 60,                      // 会话超时时间，默认60秒，单位秒，在会话时间内所有发送给机器人的信息会作为上下文
   "model": "gpt3.5-turbo",                    // 模型类型，可选参数：gpt3.5-turbo、net-gpt3.5-turbo、gpt4
-  "site": "chatdemo",                         // API 来源，可选参数：chatdemo、you、phind、vita、forefront
-  "reply_prefix": "来自GPT的回复：",           // 私聊回复前缀
+  "site": "you",                              // API 来源，可选参数：you、phind、chatdemo、vita、forefront
+  "reply_prefix": "来自GPT的回复：",          // 私聊回复前缀
   "timeout": 150,                             // 请求 API 接口的超时时间（秒）
   "url": "http://host.docker.internal:3000"   // gpt4free-ts 的部署地址
 }
